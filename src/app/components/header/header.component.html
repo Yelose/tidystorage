@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <a href="home"><h1>My Tidy Storage</h1></a>
+  <div>
+    <a
+      *ngFor="let button of buttons"
+      mat-raised-button
+      color="accent"
+      href="{{ button.url }}">
+      <mat-icon aria-hidden="false">{{ button.icon }}</mat-icon>
+      {{ button.text }}
+    </a>
+  </div>
+</mat-toolbar>
