@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Button from 'src/app/models/button';
+import Button from 'src/app/models/buttonModel';
 
 @Component({
   selector: 'app-header',
