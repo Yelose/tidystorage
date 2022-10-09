@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import Item from 'src/app/models/itemModel';
 import { MainService } from 'src/app/services/main.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements AfterViewInit {
     'box',
   ];
   public columnsToDisplay: string[] = [...this.displayedColumns, 'actions'];
-  constructor(private service: MainService) {}
+  constructor(private service: MainService, private router: Router) {}
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
@@ -34,5 +35,8 @@ export class HomeComponent implements AfterViewInit {
   }
   async reload(): Promise<void> {
     this.items = await this.service.item.GetItems();
+  }
+  async edit(id: number): Promise<void> {
+    this.router.navigate(['/edit-item', id]);
   }
 }

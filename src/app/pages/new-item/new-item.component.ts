@@ -16,7 +16,6 @@ export class NewItemComponent implements OnInit {
         select: 'select room',
         options: [
           { name: 'new' },
-          { name: 'none' },
           { name: 'Garage' },
           { name: 'Storage Room' },
           { name: 'Kitchen' },
