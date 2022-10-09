@@ -1,3 +1,21 @@
-table {
-  width: 100%;
+@import "src/app/variables.scss";
+
+body {
+  background-image: url("/assets/Storage-Room.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+  table {
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: $box-shadow;
+    width: fit-content;
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      padding: 0px 10px;
+    }
+  }
 }

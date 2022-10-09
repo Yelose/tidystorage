@@ -1,1 +1,52 @@
-<p>new-item works!</p>
+<body>
+  <header>
+    <h2>New Item to store</h2>
+  </header>
+  <main>
+    <form action="post">
+      <aside>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+          <mat-label>name of the item to store</mat-label>
+          <input matInput required>
+          <mat-hint align="end">Item has to have a name</mat-hint>
+        </mat-form-field>
+        <div class="box-icon">
+          <mat-icon color="accent">archive</mat-icon>
+        </div>
+        <div class="actions">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </aside>
+      <section>
+        <div *ngFor="let field of fields">
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput required>
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>{{field.select}}</mat-label>
+            <mat-select>
+              <div *ngFor="let option of field.options">
+                <mat-option [value]="null" >
+                  {{option.name}}
+                </mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </section>
+
+
+    </form>
+
+  </main>
+
+  </body>
+
+

@@ -12,11 +12,6 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.buttons = [
       {
-        text: 'New Storage',
-        icon: 'add',
-        url: '/new-storage',
-      },
-      {
         text: 'New Item',
         icon: 'add',
         url: '/new-item',

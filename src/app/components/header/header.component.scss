@@ -1,8 +1,50 @@
+@import "src/app/variables.scss";
+
 mat-toolbar {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 5vw;
+  background-color: rgb(180, 180, 180);
+  > a {
+    color: #3f51b5;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
   div {
     display: flex;
     gap: 2vw;
+  }
+  section {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
+
+    form {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      box-shadow: $inset-shadow;
+      border-radius: 7px;
+      background-color: rgba(255, 255, 255, 0.5);
+      input {
+        width: 200px;
+        padding: 7px 15px;
+        border: none;
+        transition: width 0.4s ease-in-out;
+        background: none;
+      }
+      input:focus {
+        width: 250px;
+        outline: none;
+        box-shadow: inset 2px 2px 3px gray;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 7px;
+      }
+      mat-icon {
+        margin: 0 10px;
+      }
+    }
   }
 }

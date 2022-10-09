@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import Item from 'src/app/models/itemModel';
 import { MainService } from 'src/app/services/main.service';
 
@@ -7,12 +7,22 @@ import { MainService } from 'src/app/services/main.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
   public items: Item[];
 
-  columnsToDisplay = ['name', 'room', 'shelving', 'section', 'position', 'box'];
-
+  public displayedColumns: string[] = [
+    'name',
+    'room',
+    'shelving',
+    'section',
+    'position',
+    'box',
+  ];
+  public columnsToDisplay: string[] = [...this.displayedColumns, 'actions'];
   constructor(private service: MainService) {}
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   async ngOnInit(): Promise<void> {
     await this.reload();
