@@ -11,6 +11,10 @@ body {
   }
   main {
     display: flex;
+    background-color: white;
+    padding: 3vh 3vw;
+    border-radius: 7px;
+    box-shadow: $box-shadow;
     form {
       display: flex;
       gap: 4vw;

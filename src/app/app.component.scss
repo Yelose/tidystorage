@@ -4,8 +4,14 @@ body {
   display: flex;
   flex-direction: column;
   main {
+    background-image: url("/assets/Storage-Room.jpg");
+    background-size: cover;
+
     display: flex;
     flex-direction: column;
     flex: 1;
+    app-home {
+      height: 100%;
+    }
   }
 }
