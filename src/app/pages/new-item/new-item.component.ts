@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import FormFieldModel from 'src/app/models/formFieldModel';
+import Item from 'src/app/models/itemModel';
+import Storage from 'src/app/models/storageModel';
+
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-new-item',
@@ -8,19 +12,15 @@ import FormFieldModel from 'src/app/models/formFieldModel';
 })
 export class NewItemComponent implements OnInit {
   public fields: FormFieldModel[] = [];
+  public items: Item[];
+  public rooms: Storage[] = [{ name: 'Trastero' }];
 
-  constructor() {
+  constructor(private service: MainService) {
     this.fields = [
       {
         label: 'new storage room',
         select: 'select room',
-        options: [
-          { name: 'new' },
-          { name: 'none' },
-          { name: 'Garage' },
-          { name: 'Storage Room' },
-          { name: 'Kitchen' },
-        ],
+        options: this.rooms,
       },
       {
         label: 'new shelving',
@@ -63,6 +63,12 @@ export class NewItemComponent implements OnInit {
       },
     ];
   }
+  async reload(): Promise<void> {
+    this.items = await this.service.item.GetItems();
+  }
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    await this.reload();
+    console.log(this.items);
+  }
 }
