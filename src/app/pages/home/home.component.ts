@@ -19,6 +19,7 @@ export class HomeComponent implements AfterViewInit {
     'box',
   ];
   public columnsToDisplay: string[] = [...this.displayedColumns, 'actions'];
+
   constructor(private service: MainService) {}
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
