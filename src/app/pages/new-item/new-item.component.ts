@@ -13,62 +13,57 @@ import { MainService } from 'src/app/services/main.service';
 export class NewItemComponent implements OnInit {
   public fields: FormFieldModel[] = [];
   public items: Item[];
-  public rooms: Storage[] = [{ name: 'Trastero' }];
+
+  public rooms: Storage[];
+  public shelvings: Storage[];
+  public sections: Storage[];
+  public positions: Storage[];
+  public boxes: Storage[];
+
+  public options: Array<any>;
 
   constructor(private service: MainService) {
+    this.rooms = [];
+    this.shelvings = [];
+    this.sections = [];
+    this.positions = [];
+    this.boxes = [];
+
     this.fields = [
       {
         label: 'new storage room',
         select: 'select room',
-        options: this.rooms,
+        options: [this.rooms],
       },
       {
         label: 'new shelving',
         select: 'select a shelving',
-        options: [
-          { name: 'new' },
-          { name: 'Left' },
-          { name: 'Front Left' },
-          { name: 'Front Middle' },
-          { name: 'Front Right' },
-          { name: 'Right' },
-        ],
+        options: [this.shelvings],
       },
       {
         label: 'new shelf',
         select: 'select a shelf',
-        options: [{ name: '1' }, { name: '2' }, { name: '3' }, { name: '4' }],
+        options: [this.sections],
       },
       {
         label: 'create position',
         select: 'select position',
-        options: [
-          { name: 'new' },
-          { name: 'Top' },
-          { name: 'Front' },
-          { name: 'Back' },
-          { name: 'Bottom' },
-        ],
+        options: [this.positions],
       },
       {
         label: 'new box or bag',
         select: 'select box',
-        options: [
-          { name: 'new' },
-          { name: 'A box' },
-          { name: 'Plastic Bag' },
-          { name: 'Hand bag' },
-          { name: 'Little box' },
-        ],
+        options: [this.boxes],
       },
     ];
   }
-  async reload(): Promise<void> {
-    this.items = await this.service.item.GetItems();
-  }
 
   async ngOnInit(): Promise<void> {
-    await this.reload();
-    console.log(this.items);
+    this.items = await this.service.item.GetItems();
+    this.rooms = await this.service.room.GetRooms();
+    this.shelvings = await this.service.shelving.GetShelvings();
+    this.sections = await this.service.section.GetSections();
+    this.positions = await this.service.position.GetPositions();
+    this.boxes = await this.service.box.GetBoxes();
   }
 }

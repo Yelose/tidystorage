@@ -1,6 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BoxService } from './box.service';
 import { ItemService } from './item.service';
+import { PositionService } from './position.service';
+import { RoomService } from './room.service';
+import { SectionService } from './section.service';
+import { ShelvingService } from './shelving.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +13,23 @@ import { ItemService } from './item.service';
 export class MainService {
   public URL: string;
 
-  constructor(public http: HttpClient, public item: ItemService) {
+  constructor(
+    public http: HttpClient,
+
+    public item: ItemService,
+    public room: RoomService,
+    public shelving: ShelvingService,
+    public section: SectionService,
+    public position: PositionService,
+    public box: BoxService
+  ) {
     this.item.service = this;
+    this.room.service = this;
+    this.shelving.service = this;
+    this.section.service = this;
+    this.position.service = this;
+    this.box.service = this;
+
     this.URL = 'http://localhost:8080/api';
   }
 
