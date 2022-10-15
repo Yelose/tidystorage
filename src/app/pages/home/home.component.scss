@@ -5,11 +5,11 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 5vh 0;
+  gap: 5vh;
   section {
     width: 35%;
     display: flex;
-    justify-content: flex-end;
-
+    justify-content: center;
     form {
       width: fit-content;
       display: flex;
@@ -18,14 +18,14 @@ body {
       border-radius: 7px;
       background-color: rgba(255, 255, 255, 0.5);
       input {
-        width: 200px;
+        width: 150px;
         padding: 7px 15px;
         border: none;
         transition: width 0.4s ease-in-out;
         background: none;
       }
       input:focus {
-        width: 250px;
+        min-width: 250px;
         outline: none;
         box-shadow: inset 2px 2px 3px gray;
         background-color: rgba(255, 255, 255, 0.2);
@@ -42,40 +42,59 @@ body {
     border-radius: 7px;
     box-shadow: $box-shadow;
     width: fit-content;
+    max-width: 90%;
     th.mat-header-cell,
     td.mat-cell,
     td.mat-footer-cell {
       padding: 0px 10px;
     }
   }
-  section {
-    width: 35%;
-    display: flex;
-    justify-content: flex-end;
+  .cards {
+    display: none;
+  }
+}
 
-    form {
-      width: fit-content;
-      display: flex;
-      align-items: center;
-      box-shadow: $inset-shadow;
-      border-radius: 7px;
-      background-color: rgba(255, 255, 255, 0.5);
-      input {
-        width: 200px;
-        padding: 7px 15px;
-        border: none;
-        transition: width 0.4s ease-in-out;
-        background: none;
+@media only screen and (max-width: 800px) {
+  table {
+    display: none;
+  }
+  body > section {
+    position: relative;
+  }
+  body > section > form {
+    position: fixed;
+    top: 65px;
+    z-index: 10;
+  }
+  .cards {
+    display: flex !important;
+    flex-flow: row wrap;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2vh;
+    mat-card {
+      justify-content: center;
+      min-width: 200px;
+      flex: 1;
+      mat-card-title.mat-card-title {
+        text-align: center;
       }
-      input:focus {
-        width: 250px;
-        outline: none;
-        box-shadow: inset 2px 2px 3px gray;
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 7px;
+      mat-card-subtitle.mat-card-subtitle {
+        text-align: center;
       }
-      mat-icon {
-        margin: 0 10px;
+      .card-content-line {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        span:first-child {
+          width: 35%;
+          text-align: end;
+        }
+        span:nth-child(2) {
+          width: 60%;
+        }
       }
     }
   }

@@ -68,4 +68,40 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
   </table>
+  <div class="cards">
+    <mat-card *ngFor="let item of items">
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle>{{ item.room }}</mat-card-subtitle>
+      <mat-card-content>
+        <p class="card-content-line">
+          <span>Furniture:</span><span>{{ item.shelving }}</span>
+        </p>
+        <p class="card-content-line">
+          <span>Section:</span><span>{{ item.section }}</span>
+        </p>
+        <p class="card-content-line">
+          <span>Position:</span><span>{{ item.position }}</span>
+        </p>
+        <p class="card-content-line">
+          <span>Box:</span><span>{{ item.box }}</span>
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="actions">
+        <button mat-mini-fab color="primary" (click)="edit(item.id)">
+          <mat-icon mat-icon-button>edit_square</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          color="warn"
+          (click)="delete(item.id)"
+          matTooltip="click here to delete {{ item.name }}"
+          [matTooltipShowDelay]="500"
+          [matTooltipHideDelay]="200"
+          [matTooltipPosition]="'right'"
+        >
+          <mat-icon mat-icon-button>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </body>

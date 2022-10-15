@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -19,6 +20,7 @@ const MaterialComponents = [
   MatCheckboxModule,
   MatSelectModule,
   MatTooltipModule,
+  MatCardModule,
 ];
 @NgModule({
   imports: [MaterialComponents],
