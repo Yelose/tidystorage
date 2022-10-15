@@ -67,7 +67,7 @@
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select a Furniture</mat-label>
-            <mat-select>
+            <mat-select (valueChange)="changeShelving($event)">
               <mat-option [value]="null">New Furniture</mat-option>
               <mat-option
                 *ngFor="let shelving of shelvings"
@@ -89,7 +89,7 @@
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select a Shelf</mat-label>
-            <mat-select>
+            <mat-select (valueChange)="changeSection($event)">
               <mat-option [value]="null">New Shelf</mat-option>
               <mat-option *ngFor="let section of sections" [value]="section">{{
                 section.name
@@ -109,7 +109,7 @@
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select Position</mat-label>
-            <mat-select>
+            <mat-select (valueChange)="changePosition($event)">
               <mat-option [value]="null">New Position</mat-option>
               <mat-option
                 *ngFor="let position of positions"
@@ -126,7 +126,7 @@
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select Box</mat-label>
-            <mat-select>
+            <mat-select (valueChange)="changeBox($event)">
               <mat-option [value]="null">New Box</mat-option>
               <mat-option *ngFor="let box of boxes" [value]="box">{{
                 box.name

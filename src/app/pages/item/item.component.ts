@@ -56,4 +56,20 @@ export class ItemComponent implements OnInit {
   public changeRoom(e: Storage) {
     this.item.room = e.name;
   }
+
+  public changeShelving(e: Storage) {
+    this.item.shelving = e.name;
+  }
+
+  public changeSection(e: Storage) {
+    this.item.section = e.name;
+  }
+
+  public changePosition(e: Storage) {
+    this.item.position = e.name;
+  }
+
+  public changeBox(e: Storage) {
+    this.item.box = e.name;
+  }
 }
