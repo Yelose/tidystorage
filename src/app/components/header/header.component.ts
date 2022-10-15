@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
       {
         text: 'New Item',
         icon: 'add',
-        url: '/new-item',
+        url: '/item/0',
       },
     ];
   }

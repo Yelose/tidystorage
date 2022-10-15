@@ -5,11 +5,11 @@ import Storage from '../models/storageModel';
 @Injectable({
   providedIn: 'root',
 })
-export class RoomService {
+export class SectionService {
   public service: MainService;
 
-  public async GetRooms(): Promise<Storage[]> {
-    return await this.service.HttpGet('/rooms');
+  public async GetSections(): Promise<Storage[]> {
+    return await this.service.HttpGet('/sections');
   }
 
   constructor() {}

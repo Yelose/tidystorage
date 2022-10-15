@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -9,10 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewStorageComponent } from './pages/new-storage/new-storage.component';
-import { NewItemComponent } from './pages/new-item/new-item.component';
 import { StorageComponent } from './pages/storage/storage.component';
-import { EditItemComponent } from './pages/edit-item/edit-item.component';
 import { MaterialModule } from './modules/material.module';
+import { ItemComponent } from './pages/item/item.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,11 @@ import { MaterialModule } from './modules/material.module';
     HomeComponent,
     HeaderComponent,
     NewStorageComponent,
-    NewItemComponent,
     StorageComponent,
-    EditItemComponent,
+    ItemComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

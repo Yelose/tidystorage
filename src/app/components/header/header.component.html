@@ -1,23 +1,21 @@
 <mat-toolbar>
   <a href="home">
-    <mat-icon aria-hidden="false" aria-label="Search" fontIcon="home"></mat-icon>
-    <h1>My Tidy Storage</h1></a>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Search"
+      fontIcon="home"
+    ></mat-icon>
+    <h1>My Tidy Storage</h1></a
+  >
   <div>
     <a
       *ngFor="let button of buttons"
       mat-raised-button
       color="accent"
-      href="{{ button.url }}">
+      href="{{ button.url }}"
+    >
       <mat-icon aria-hidden="false">{{ button.icon }}</mat-icon>
       {{ button.text }}
     </a>
   </div>
-  <section>
-    <form>
-      <input placeholder="Search" class="search-input">
-      <mat-icon aria-hidden="false" aria-label="Search" fontIcon="search"></mat-icon>
-    </form>
-  </section>
-
-
 </mat-toolbar>

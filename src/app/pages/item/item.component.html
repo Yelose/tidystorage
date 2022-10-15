@@ -1,0 +1,140 @@
+<body>
+  <header>
+    <h2>New Item to store</h2>
+  </header>
+  <main>
+    <form action="post">
+      <aside>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+          <mat-label>name of the item to store</mat-label>
+          <input matInput required [(ngModel)]="item.name" name="name" />
+          <mat-hint align="end">Item has to have a name</mat-hint>
+        </mat-form-field>
+        <div class="box-icon">
+          <mat-icon color="accent">archive</mat-icon>
+        </div>
+        <div class="actions">
+          <a
+            (click)="save()"
+            mat-fab
+            color="primary"
+            aria-label="Example icon button with a delete icon"
+          >
+            <mat-icon>check</mat-icon>
+          </a>
+          <a
+            href="home"
+            mat-fab
+            color="warn"
+            aria-label="Example icon button with a delete icon"
+          >
+            <mat-icon>close</mat-icon>
+          </a>
+        </div>
+      </aside>
+      <section>
+        <div>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Storage Room</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              [(ngModel)]="item.room"
+              name="room"
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Select a Room</mat-label>
+            <mat-select (valueChange)="changeRoom($event)">
+              <mat-option [value]="null">New Room</mat-option>
+              <mat-option *ngFor="let room of rooms" [value]="room">{{
+                room.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Furniture</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              [(ngModel)]="item.shelving"
+              name="shelving"
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Select a Furniture</mat-label>
+            <mat-select (valueChange)="changeShelving($event)">
+              <mat-option [value]="null">New Furniture</mat-option>
+              <mat-option
+                *ngFor="let shelving of shelvings"
+                [value]="shelving"
+                >{{ shelving.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>New Shelf</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="item.section"
+              name="section"
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Select a Shelf</mat-label>
+            <mat-select (valueChange)="changeSection($event)">
+              <mat-option [value]="null">New Shelf</mat-option>
+              <mat-option *ngFor="let section of sections" [value]="section">{{
+                section.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Storage Position</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="item.position"
+              name="position"
+            />
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Select Position</mat-label>
+            <mat-select (valueChange)="changePosition($event)">
+              <mat-option [value]="null">New Position</mat-option>
+              <mat-option
+                *ngFor="let position of positions"
+                [value]="position"
+                >{{ position.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Storage Box</mat-label>
+            <input matInput type="text" [(ngModel)]="item.box" name="box" />
+          </mat-form-field>
+          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+            <mat-label>Select Box</mat-label>
+            <mat-select (valueChange)="changeBox($event)">
+              <mat-option [value]="null">New Box</mat-option>
+              <mat-option *ngFor="let box of boxes" [value]="box">{{
+                box.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </section>
+    </form>
+  </main>
+</body>
