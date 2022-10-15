@@ -4,6 +4,13 @@
   </header>
   <main>
     <form action="post">
+      <div>
+        <mat-form-field floatLabel="auto" color="primary" appearance="fill">
+          <mat-label>name of the item to store</mat-label>
+          <input matInput required [(ngModel)]="item.name" name="name" />
+          <mat-hint align="end">Item has to have a name</mat-hint>
+        </mat-form-field>
+      </div>
       <aside>
         <mat-form-field floatLabel="auto" color="primary" appearance="fill">
           <mat-label>name of the item to store</mat-label>
@@ -135,6 +142,24 @@
           </mat-form-field>
         </div>
       </section>
+      <div class="actions">
+        <a
+          (click)="save()"
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>check</mat-icon>
+        </a>
+        <a
+          href="home"
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>close</mat-icon>
+        </a>
+      </div>
     </form>
   </main>
 </body>
