@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Button from 'src/app/models/buttonModel';
 
 @Component({
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
       {
         text: 'New Item',
         icon: 'add',
-        url: '/new-item',
+        url: '/item/0',
       },
     ];
   }

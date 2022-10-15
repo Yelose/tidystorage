@@ -7,40 +7,48 @@
       <aside>
         <mat-form-field floatLabel="auto" color="primary" appearance="fill">
           <mat-label>name of the item to store</mat-label>
-          <input matInput required />
+          <input matInput required [(ngModel)]="item.name" name="name" />
           <mat-hint align="end">Item has to have a name</mat-hint>
         </mat-form-field>
         <div class="box-icon">
           <mat-icon color="accent">archive</mat-icon>
         </div>
         <div class="actions">
-          <button
+          <a
+            (click)="save()"
             mat-fab
             color="primary"
             aria-label="Example icon button with a delete icon"
           >
             <mat-icon>check</mat-icon>
-          </button>
-          <button
+          </a>
+          <a
+            href="home"
             mat-fab
             color="warn"
             aria-label="Example icon button with a delete icon"
           >
             <mat-icon>close</mat-icon>
-          </button>
+          </a>
         </div>
       </aside>
       <section>
         <div>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Storage Room</mat-label>
-            <input matInput type="text" required />
+            <input
+              matInput
+              type="text"
+              required
+              [(ngModel)]="item.room"
+              name="room"
+            />
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select a Room</mat-label>
-            <mat-select>
-              <mat-option>New Room</mat-option>
-              <mat-option *ngFor="let room of rooms">{{
+            <mat-select (valueChange)="changeRoom($event)">
+              <mat-option [value]="null">New Room</mat-option>
+              <mat-option *ngFor="let room of rooms" [value]="room">{{
                 room.name
               }}</mat-option>
             </mat-select>
@@ -49,29 +57,42 @@
         <div>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Furniture</mat-label>
-            <input matInput type="text" required />
+            <input
+              matInput
+              type="text"
+              required
+              [(ngModel)]="item.shelving"
+              name="shelving"
+            />
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select a Furniture</mat-label>
             <mat-select>
-              <mat-option>New Furniture</mat-option>
-              <mat-option *ngFor="let shelf of shelvings">{{
-                shelf.name
-              }}</mat-option>
+              <mat-option [value]="null">New Furniture</mat-option>
+              <mat-option
+                *ngFor="let shelving of shelvings"
+                [value]="shelving"
+                >{{ shelving.name }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>New Shelf</mat-label>
-            <input matInput type="text" />
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="item.section"
+              name="section"
+            />
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select a Shelf</mat-label>
             <mat-select>
-              <mat-option>New Shelf</mat-option>
-              <mat-option *ngFor="let shelf of sections">{{
-                shelf.name
+              <mat-option [value]="null">New Shelf</mat-option>
+              <mat-option *ngFor="let section of sections" [value]="section">{{
+                section.name
               }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -79,54 +100,41 @@
         <div>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Storage Position</mat-label>
-            <input matInput type="text" />
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="item.position"
+              name="position"
+            />
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select Position</mat-label>
             <mat-select>
-              <mat-option>New Position</mat-option>
-              <mat-option *ngFor="let pos of positions">{{
-                pos.name
-              }}</mat-option>
+              <mat-option [value]="null">New Position</mat-option>
+              <mat-option
+                *ngFor="let position of positions"
+                [value]="position"
+                >{{ position.name }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Storage Box</mat-label>
-            <input matInput type="text" />
+            <input matInput type="text" [(ngModel)]="item.box" name="box" />
           </mat-form-field>
           <mat-form-field floatLabel="auto" color="primary" appearance="fill">
             <mat-label>Select Box</mat-label>
             <mat-select>
-              <mat-option>New Box</mat-option>
-              <mat-option *ngFor="let box of boxes">{{ box.name }}</mat-option>
+              <mat-option [value]="null">New Box</mat-option>
+              <mat-option *ngFor="let box of boxes" [value]="box">{{
+                box.name
+              }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
       </section>
-      <!-- Refactoring
-        <section>
-        <div *ngFor="let field of fields">
-          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-            <mat-label>{{ field.label }}</mat-label>
-            <input matInput required />
-          </mat-form-field>
-          <mat-form-field floatLabel="auto" color="primary" appearance="fill">
-            <mat-label>{{ field.select }}</mat-label>
-            <mat-select>
-              <div *ngFor="let option of options">
-                <mat-option *ngIf="option.rooms">
-                  {{ option.room.name }}
-                </mat-option>
-                <mat-option *ngIf="option.rooms">
-                  {{ option.room.name }}
-                </mat-option>
-              </div>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </section> -->
     </form>
   </main>
 </body>

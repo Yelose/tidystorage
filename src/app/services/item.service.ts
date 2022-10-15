@@ -12,6 +12,9 @@ export class ItemService {
     return await this.service.HttpGet('/items');
   }
 
+  public async SearchItems(text: string): Promise<Item[]> {
+    return await this.service.HttpGet(`/search/${encodeURIComponent(text)}`);
+  }
   public async GetItem(id: number): Promise<Item> {
     return await this.service.HttpGet(`/items/${id}`);
   }
