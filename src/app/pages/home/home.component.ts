@@ -34,6 +34,7 @@ export class HomeComponent implements AfterViewInit {
     await this.service.item.DeleteItem(id);
     await this.reload();
   }
+  
   async reload(): Promise<void> {
     if (this.searchText) {
       this.items = await this.service.item.SearchItems(this.searchText);
