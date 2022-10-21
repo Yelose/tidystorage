@@ -9,15 +9,7 @@ import Button from 'src/app/models/buttonModel';
 export class HeaderComponent implements OnInit {
   public buttons: Button[] = [];
 
-  constructor() {
-    this.buttons = [
-      {
-        text: 'New Item',
-        icon: 'add',
-        url: '/item/0',
-      },
-    ];
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
